@@ -2,11 +2,12 @@ import React from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { ProjectCard } from '@/components/projects/ProjectCard';
+import { ApplicationStatus } from './ApplicationStatus';
 import { useApp } from '@/context/AppContext';
 import { Heart, Target, CheckCircle } from 'lucide-react';
 
 export const VolunteerDashboard = () => {
-  const { currentUser, projects } = useApp();
+  const { currentUser, projects, applications } = useApp();
   
   const appliedProjects = projects.filter(p => 
     currentUser?.appliedProjects?.includes(p.id)
@@ -15,6 +16,11 @@ export const VolunteerDashboard = () => {
   const availableProjects = projects.filter(p => 
     !currentUser?.appliedProjects?.includes(p.id)
   );
+
+  // Get application stats
+  const userApplications = applications?.filter(app => app.volunteerId === currentUser?.id) || [];
+  const acceptedApplications = userApplications.filter(app => app.status === 'accepted').length;
+  const pendingApplications = userApplications.filter(app => app.status === 'pending').length;
 
   // Match projects based on skills
   const matchedProjects = availableProjects.filter(project =>
@@ -42,13 +48,23 @@ export const VolunteerDashboard = () => {
       </div>
 
       {/* Stats Cards */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+      <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
         <Card className="shadow-card">
           <CardContent className="flex items-center p-6">
             <Heart className="w-8 h-8 text-primary mr-3" />
             <div>
               <p className="text-2xl font-bold">{appliedProjects.length}</p>
               <p className="text-sm text-muted-foreground">Applications Sent</p>
+            </div>
+          </CardContent>
+        </Card>
+        
+        <Card className="shadow-card">
+          <CardContent className="flex items-center p-6">
+            <CheckCircle className="w-8 h-8 text-success mr-3" />
+            <div>
+              <p className="text-2xl font-bold">{acceptedApplications}</p>
+              <p className="text-sm text-muted-foreground">Accepted</p>
             </div>
           </CardContent>
         </Card>
@@ -94,6 +110,9 @@ export const VolunteerDashboard = () => {
           </CardContent>
         </Card>
       )}
+
+      {/* Application Status */}
+      <ApplicationStatus />
 
       {/* Applied Projects */}
       {appliedProjects.length > 0 && (
