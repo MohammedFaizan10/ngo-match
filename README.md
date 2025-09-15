@@ -1,73 +1,80 @@
-# Welcome to your Lovable project
+# 💖 Impact Connect
 
-## Project info
+Welcome to Impact Connect, a platform that connects passionate volunteers with NGOs to create meaningful change. Our mission is to democratize social impact by providing a seamless experience for both volunteers and organizations to collaborate on projects.
 
-**URL**: https://lovable.dev/projects/8ba3d358-c385-432f-a715-410b0c09995d
+## ✨ Features
 
-## How can I edit this code?
+  - **Smart Skill Matching**: Our intelligent algorithm pairs volunteers with projects based on their skills, interests, and availability.
+  - **Verified Organizations**: All NGOs on our platform are thoroughly vetted and verified to ensure your efforts support legitimate and impactful causes.
+  - **Impact Tracking**: Volunteers can track their contributions and see the real-world impact of their work through detailed analytics and reports.
+  - **Easy Application Process**: Our streamlined application system makes it simple to apply for opportunities and track your application status.
+  - **Global Opportunities**: Find volunteer opportunities both locally and globally, with remote work options for digital contributions.
 
-There are several ways of editing your application.
+-----
 
-**Use Lovable**
+## 🚀 Technologies Used
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/8ba3d358-c385-432f-a715-410b0c09995d) and start prompting.
+This project is built using a modern stack to deliver a fast, responsive, and delightful user experience.
 
-Changes made via Lovable will be committed automatically to this repo.
+  - **Framework**: [React](https://reactjs.org/)
+  - **Build Tool**: [Vite](https://vitejs.dev/)
+  - **Language**: [TypeScript](https://www.typescriptlang.org/)
+  - **Styling**: [Tailwind CSS](https://tailwindcss.com/) with custom themes and animations
+  - **UI Components**: [shadcn/ui](https://ui.shadcn.com/)
+  - **State Management**: React Context API for application-wide state management
+  - **Routing**: [React Router DOM](https://reactrouter.com/en/main)
+  - **Database**: The application is configured for **Supabase** integration.
 
-**Use your preferred IDE**
+-----
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+## ⚙️ Getting Started
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+To run this project locally, you'll need Node.js and npm installed.
 
-Follow these steps:
+1.  **Clone the repository**:
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+    ```bash
+    git clone <YOUR_GIT_URL>
+    ```
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+2.  **Navigate to the project directory**:
 
-# Step 3: Install the necessary dependencies.
-npm i
+    ```bash
+    cd mohammedfaizan10/ngo-match/ngo-match-02f0c164dddffa53ab2cfbc4b1c71fb87839bda2
+    ```
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
-```
+3.  **Install dependencies**:
 
-**Edit a file directly in GitHub**
+    ```bash
+    npm install
+    ```
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+4.  **Start the development server**:
 
-**Use GitHub Codespaces**
+    ```bash
+    npm run dev
+    ```
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+This will start the app with auto-reloading and an instant preview.
 
-## What technologies are used for this project?
+-----
 
-This project is built with:
+## 🌟 Demo Accounts
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+You can explore the platform with these demo accounts:
 
-## How can I deploy this project?
+  - **Volunteer**: `volunteer_demo` / `demo123`
+  - **NGO**: `greenearth_ngo` / `demo123`
 
-Simply open [Lovable](https://lovable.dev/projects/8ba3d358-c385-432f-a715-410b0c09995d) and click on Share -> Publish.
+These credentials are for demonstration purposes only and are loaded from local storage.
 
-## Can I connect a custom domain to my Lovable project?
+-----
 
-Yes, you can!
+## 🌐 Deployment
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+This project is designed to be easily deployed. You can use platforms like Vercel, Netlify, or similar hosting services.
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+  - **Build command**: `npm run build`
+  - **Output directory**: `dist`
+
+This will create an optimized, production-ready version of the app.
