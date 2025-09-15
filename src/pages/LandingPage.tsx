@@ -18,24 +18,27 @@ import {
   UserCheck,
   Building,
   Lightbulb,
-  Handshake
+  Handshake,
+  Sparkles,
+  Star,
+  Wand2
 } from 'lucide-react';
 
 const LandingPage = () => {
   return (
     <div className="min-h-screen bg-background">
       {/* Navigation */}
-      <nav className="border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+      <nav className="border-b bg-card/30 backdrop-blur-xl shadow-soft">
         <div className="container mx-auto px-4 py-4 flex items-center justify-between">
-          <div className="flex items-center space-x-2">
-            <div className="w-10 h-10 hero-gradient rounded-lg flex items-center justify-center">
-              <Heart className="w-6 h-6 text-white" />
+          <div className="flex items-center space-x-3 group">
+            <div className="w-12 h-12 gradient-primary rounded-2xl flex items-center justify-center shadow-magical group-hover:animate-wiggle">
+              <Heart className="w-7 h-7 text-white" />
             </div>
-            <span className="text-2xl font-bold">Impact Connect</span>
+            <span className="text-2xl font-bold font-display text-gradient">Impact Connect</span>
           </div>
           
           <Link to="/home">
-            <Button className="bg-gradient-to-r from-primary to-primary-glow hover:opacity-90 transition-opacity">
+            <Button variant="magical" size="lg" className="animate-sparkle font-display">
               Get Started
               <ArrowRight className="ml-2 w-4 h-4" />
             </Button>
@@ -44,38 +47,44 @@ const LandingPage = () => {
       </nav>
 
       {/* Hero Section */}
-      <section className="relative overflow-hidden">
+      <section className="relative overflow-hidden min-h-screen flex items-center">
         <div className="absolute inset-0">
           <img 
             src={heroImage}
             alt="Volunteers making impact together"
             className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0 hero-gradient opacity-85"></div>
+          <div className="absolute inset-0 gradient-primary opacity-90"></div>
+          <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-accent/10 to-success/20"></div>
         </div>
         
         <div className="relative container mx-auto px-4 py-32">
-          <div className="max-w-4xl mx-auto text-center text-white space-y-8">
-            <h1 className="text-6xl lg:text-7xl font-bold leading-tight">
+          <div className="max-w-4xl mx-auto text-center text-white space-y-8 animate-fade-in">
+            <div className="inline-flex items-center space-x-2 bg-white/10 backdrop-blur-sm rounded-full px-6 py-3 border border-white/20 animate-bounce-gentle">
+              <Sparkles className="w-5 h-5 animate-sparkle" />
+              <span className="font-body text-sm">Where Magic Meets Impact</span>
+            </div>
+            
+            <h1 className="text-7xl lg:text-8xl font-bold font-display leading-tight animate-slide-up">
               Connect Skills,
               <br />
-              <span className="text-primary-glow">Create Impact</span>
+              <span className="text-white animate-glow">Create Magic</span>
             </h1>
             
-            <p className="text-2xl text-white/90 leading-relaxed max-w-3xl mx-auto">
-              Bridging the gap between passionate volunteers and impactful NGOs. 
-              Find meaningful opportunities that match your skills and drive real change in communities worldwide.
+            <p className="text-2xl leading-relaxed max-w-3xl mx-auto font-body opacity-90 animate-fade-in">
+              ✨ Where passionate volunteers meet amazing NGOs to create sparkles of change. 
+              Find your perfect match and make the world a little more magical! 🌟
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center pt-8">
               <Link to="/home">
-                <Button size="lg" className="bg-white text-primary hover:bg-white/90 text-lg px-8 py-4">
-                  Start Your Journey
+                <Button size="xl" variant="soft" className="animate-bounce-gentle hover:animate-wiggle font-display">
+                  🚀 Start Your Journey
                   <ArrowRight className="ml-2 w-5 h-5" />
                 </Button>
               </Link>
-              <Button size="lg" variant="outline" className="border-white/30 text-white hover:bg-white/10 text-lg px-8 py-4">
-                Learn More
+              <Button size="xl" variant="outline" className="border-white/30 text-white hover:bg-white/10 font-body animate-fade-in">
+                💫 Learn More
               </Button>
             </div>
           </div>

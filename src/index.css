@@ -2,58 +2,76 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Impact Match Design System - Professional NGO/Volunteer Platform */
+/* 💖 Adorable Impact Connect - Delightful Design System 💖 */
 
 @layer base {
   :root {
-    /* Core Colors - Impact-focused palette */
-    --background: 0 0% 100%;
-    --foreground: 210 11% 15%;
+    /* 🌸 Adorable Core Colors - Soft & Delightful */
+    --background: 330 25% 99%;
+    --foreground: 240 15% 25%;
 
     --card: 0 0% 100%;
-    --card-foreground: 210 11% 15%;
+    --card-foreground: 240 15% 25%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 210 11% 15%;
+    --popover-foreground: 240 15% 25%;
 
-    /* Primary - Impact Green */
-    --primary: 142 69% 49%;
+    /* 💜 Primary - Magical Purple */
+    --primary: 280 85% 68%;
     --primary-foreground: 0 0% 100%;
-    --primary-glow: 142 69% 65%;
+    --primary-glow: 285 100% 82%;
+    --primary-light: 290 100% 95%;
 
-    /* Secondary - Trust Blue */
-    --secondary: 210 100% 96%;
-    --secondary-foreground: 210 11% 15%;
+    /* 🌈 Secondary - Dreamy Blue */
+    --secondary: 200 100% 96%;
+    --secondary-foreground: 240 15% 25%;
 
-    --muted: 210 40% 98%;
-    --muted-foreground: 215 16% 47%;
+    --muted: 315 20% 97%;
+    --muted-foreground: 240 8% 55%;
 
-    /* Accent - Growth Teal */
-    --accent: 174 62% 50%;
+    /* ✨ Accent - Sparkle Pink */
+    --accent: 320 85% 75%;
     --accent-foreground: 0 0% 100%;
+    --accent-light: 320 100% 95%;
 
-    --destructive: 0 84% 60%;
+    /* 🍑 Success - Sweet Cherry */
+    --success: 350 85% 65%;
+    --success-foreground: 0 0% 100%;
+    --success-light: 350 100% 95%;
+
+    /* ⚠️ Warning - Sunny Orange */
+    --warning: 35 95% 68%;
+    --warning-foreground: 0 0% 100%;
+    --warning-light: 35 100% 95%;
+
+    --destructive: 0 85% 68%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 214 32% 91%;
-    --input: 214 32% 91%;
-    --ring: 142 69% 49%;
+    --border: 315 20% 90%;
+    --input: 315 20% 94%;
+    --ring: 280 85% 68%;
 
-    --radius: 0.75rem;
+    --radius: 1.2rem;
 
-    /* Impact Match Specific Tokens */
-    --hero-gradient: linear-gradient(135deg, hsl(142 69% 49%), hsl(174 62% 50%));
-    --card-gradient: linear-gradient(135deg, hsl(0 0% 100%), hsl(210 40% 98%));
-    --success-glow: linear-gradient(135deg, hsl(142 69% 49% / 0.1), hsl(174 62% 50% / 0.1));
+    /* 🌟 Adorable Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(280 85% 68%), hsl(320 85% 75%));
+    --gradient-secondary: linear-gradient(135deg, hsl(200 100% 85%), hsl(240 100% 90%));
+    --gradient-accent: linear-gradient(135deg, hsl(320 85% 75%), hsl(350 85% 65%));
+    --gradient-background: linear-gradient(135deg, hsl(330 25% 99%), hsl(315 20% 97%));
+    --gradient-card: linear-gradient(135deg, hsl(0 0% 100%), hsl(315 20% 98%));
+    --gradient-glow: linear-gradient(135deg, hsl(280 85% 68% / 0.1), hsl(320 85% 75% / 0.1));
     
-    /* Shadows */
-    --shadow-elegant: 0 4px 20px -4px hsl(142 69% 49% / 0.15);
-    --shadow-card: 0 2px 8px -2px hsl(210 11% 15% / 0.08);
-    --shadow-glow: 0 0 30px hsl(142 69% 49% / 0.3);
+    /* ✨ Magical Shadows */
+    --shadow-soft: 0 4px 20px -8px hsl(280 85% 68% / 0.2);
+    --shadow-medium: 0 8px 30px -6px hsl(280 85% 68% / 0.15);
+    --shadow-large: 0 16px 60px -12px hsl(280 85% 68% / 0.25);
+    --shadow-glow: 0 0 40px hsl(280 85% 68% / 0.3);
+    --shadow-magical: 0 8px 32px hsl(280 85% 68% / 0.2), 0 0 0 1px hsl(280 85% 68% / 0.05);
 
-    /* Animations */
+    /* 🎨 Delightful Animations */
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    --transition-bounce: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    --transition-bounce: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    --transition-gentle: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 
     --sidebar-background: 0 0% 98%;
 
@@ -73,46 +91,64 @@
   }
 
   .dark {
-    --background: 210 11% 15%;
-    --foreground: 0 0% 98%;
+    /* 🌙 Dark Mode - Cozy & Mysterious */
+    --background: 240 15% 8%;
+    --foreground: 315 20% 92%;
 
-    --card: 210 11% 15%;
-    --card-foreground: 0 0% 98%;
+    --card: 240 15% 10%;
+    --card-foreground: 315 20% 92%;
 
-    --popover: 210 11% 15%;
-    --popover-foreground: 0 0% 98%;
+    --popover: 240 15% 10%;
+    --popover-foreground: 315 20% 92%;
 
-    /* Primary - Impact Green (adjusted for dark mode) */
-    --primary: 142 69% 55%;
-    --primary-foreground: 210 11% 15%;
-    --primary-glow: 142 69% 70%;
+    /* 💜 Primary - Glowing Purple */
+    --primary: 285 85% 72%;
+    --primary-foreground: 240 15% 8%;
+    --primary-glow: 290 100% 85%;
+    --primary-light: 290 50% 15%;
 
-    --secondary: 210 11% 20%;
-    --secondary-foreground: 0 0% 98%;
+    --secondary: 240 15% 12%;
+    --secondary-foreground: 315 20% 92%;
 
-    --muted: 210 11% 18%;
-    --muted-foreground: 215 20% 70%;
+    --muted: 240 15% 12%;
+    --muted-foreground: 240 8% 70%;
 
-    /* Accent - Growth Teal (adjusted for dark mode) */
-    --accent: 174 62% 55%;
-    --accent-foreground: 210 11% 15%;
+    /* ✨ Accent - Glowing Pink */
+    --accent: 325 85% 78%;
+    --accent-foreground: 240 15% 8%;
+    --accent-light: 325 50% 15%;
 
-    --destructive: 0 62% 50%;
-    --destructive-foreground: 0 0% 98%;
+    /* 🍑 Success - Glowing Cherry */
+    --success: 355 85% 70%;
+    --success-foreground: 240 15% 8%;
+    --success-light: 355 50% 15%;
 
-    --border: 210 11% 25%;
-    --input: 210 11% 25%;
-    --ring: 142 69% 55%;
+    /* ⚠️ Warning - Glowing Orange */
+    --warning: 40 95% 72%;
+    --warning-foreground: 240 15% 8%;
+    --warning-light: 40 50% 15%;
 
-    /* Dark mode specific gradients and shadows */
-    --hero-gradient: linear-gradient(135deg, hsl(142 69% 55%), hsl(174 62% 55%));
-    --card-gradient: linear-gradient(135deg, hsl(210 11% 15%), hsl(210 11% 18%));
-    --success-glow: linear-gradient(135deg, hsl(142 69% 55% / 0.1), hsl(174 62% 55% / 0.1));
+    --destructive: 5 85% 72%;
+    --destructive-foreground: 240 15% 8%;
+
+    --border: 240 15% 18%;
+    --input: 240 15% 15%;
+    --ring: 285 85% 72%;
+
+    /* 🌟 Dark Mode Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(285 85% 72%), hsl(325 85% 78%));
+    --gradient-secondary: linear-gradient(135deg, hsl(240 15% 12%), hsl(240 15% 15%));
+    --gradient-accent: linear-gradient(135deg, hsl(325 85% 78%), hsl(355 85% 70%));
+    --gradient-background: linear-gradient(135deg, hsl(240 15% 8%), hsl(240 15% 10%));
+    --gradient-card: linear-gradient(135deg, hsl(240 15% 10%), hsl(240 15% 12%));
+    --gradient-glow: linear-gradient(135deg, hsl(285 85% 72% / 0.2), hsl(325 85% 78% / 0.2));
     
-    /* Adjusted shadows for dark mode */
-    --shadow-elegant: 0 4px 20px -4px hsl(142 69% 55% / 0.2);
-    --shadow-card: 0 2px 8px -2px hsl(0 0% 0% / 0.3);
-    --shadow-glow: 0 0 30px hsl(142 69% 55% / 0.4);
+    /* ✨ Dark Mode Shadows */
+    --shadow-soft: 0 4px 20px -8px hsl(0 0% 0% / 0.4);
+    --shadow-medium: 0 8px 30px -6px hsl(0 0% 0% / 0.3);
+    --shadow-large: 0 16px 60px -12px hsl(0 0% 0% / 0.5);
+    --shadow-glow: 0 0 40px hsl(285 85% 72% / 0.4);
+    --shadow-magical: 0 8px 32px hsl(0 0% 0% / 0.3), 0 0 0 1px hsl(285 85% 72% / 0.1);
 
     --sidebar-background: 210 11% 20%;
     --sidebar-foreground: 0 0% 95%;
@@ -131,32 +167,49 @@
   }
 
   body {
-    @apply bg-background text-foreground font-sans antialiased;
+    @apply bg-background text-foreground font-body antialiased;
+    background: var(--gradient-background);
   }
 
-  /* Custom utility classes for Impact Match */
-  .hero-gradient {
-    background: var(--hero-gradient);
+  /* 💖 Adorable Utility Classes */
+  .gradient-primary {
+    background: var(--gradient-primary);
   }
   
-  .card-gradient {
-    background: var(--card-gradient);
+  .gradient-secondary {
+    background: var(--gradient-secondary);
   }
   
-  .success-glow {
-    background: var(--success-glow);
+  .gradient-accent {
+    background: var(--gradient-accent);
   }
   
-  .shadow-elegant {
-    box-shadow: var(--shadow-elegant);
+  .gradient-card {
+    background: var(--gradient-card);
   }
   
-  .shadow-card {
-    box-shadow: var(--shadow-card);
+  .gradient-glow {
+    background: var(--gradient-glow);
+  }
+  
+  .shadow-soft {
+    box-shadow: var(--shadow-soft);
+  }
+  
+  .shadow-medium {
+    box-shadow: var(--shadow-medium);
+  }
+  
+  .shadow-large {
+    box-shadow: var(--shadow-large);
   }
   
   .shadow-glow {
     box-shadow: var(--shadow-glow);
+  }
+  
+  .shadow-magical {
+    box-shadow: var(--shadow-magical);
   }
   
   .transition-smooth {
@@ -166,23 +219,120 @@
   .transition-bounce {
     transition: var(--transition-bounce);
   }
+  
+  .transition-gentle {
+    transition: var(--transition-gentle);
+  }
 
-  /* Animation keyframes */
+  /* ✨ Magical Animations */
+  .animate-float {
+    animation: float 3s ease-in-out infinite;
+  }
+
   .animate-glow {
     animation: glow 2s ease-in-out infinite alternate;
   }
 
-  @keyframes glow {
-    from {
-      box-shadow: 0 0 20px hsl(142 69% 49% / 0.2);
-    }
-    to {
-      box-shadow: 0 0 30px hsl(142 69% 49% / 0.4), 0 0 40px hsl(174 62% 50% / 0.3);
-    }
+  .animate-bounce-gentle {
+    animation: bounceGentle 0.6s ease-out;
+  }
+
+  .animate-wiggle {
+    animation: wiggle 0.5s ease-in-out;
+  }
+
+  .animate-sparkle {
+    animation: sparkle 1.5s ease-in-out infinite;
   }
 
   .animate-slide-up {
     animation: slideUp 0.6s ease-out forwards;
+  }
+
+  .animate-fade-in {
+    animation: fadeIn 0.4s ease-out forwards;
+  }
+
+  .animate-scale-in {
+    animation: scaleIn 0.3s ease-out forwards;
+  }
+
+  .hover-lift {
+    @apply transition-all duration-300 ease-out;
+  }
+
+  .hover-lift:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-large);
+  }
+
+  .hover-glow {
+    @apply transition-all duration-300 ease-out;
+  }
+
+  .hover-glow:hover {
+    box-shadow: var(--shadow-glow);
+    transform: translateY(-2px);
+  }
+
+  .glass-effect {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+
+  /* 🎨 Animation Keyframes */
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+
+  @keyframes glow {
+    from {
+      box-shadow: 0 0 20px hsl(280 85% 68% / 0.3);
+    }
+    to {
+      box-shadow: 0 0 40px hsl(280 85% 68% / 0.5), 0 0 60px hsl(320 85% 75% / 0.3);
+    }
+  }
+
+  @keyframes bounceGentle {
+    0% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.05);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+
+  @keyframes wiggle {
+    0%, 100% {
+      transform: rotate(0deg);
+    }
+    25% {
+      transform: rotate(-3deg);
+    }
+    75% {
+      transform: rotate(3deg);
+    }
+  }
+
+  @keyframes sparkle {
+    0%, 100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+    50% {
+      opacity: 0.8;
+      transform: scale(1.05);
+    }
   }
 
   @keyframes slideUp {
@@ -194,5 +344,58 @@
       opacity: 1;
       transform: translateY(0);
     }
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes scaleIn {
+    from {
+      opacity: 0;
+      transform: scale(0.9);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  /* 🌟 Special Effects */
+  .text-gradient {
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .border-gradient {
+    border: 2px solid transparent;
+    background: linear-gradient(white, white) padding-box,
+                var(--gradient-primary) border-box;
+  }
+
+  .button-magical {
+    @apply relative overflow-hidden;
+  }
+
+  .button-magical::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transition: left 0.6s;
+  }
+
+  .button-magical:hover::before {
+    left: 100%;
   }
 }

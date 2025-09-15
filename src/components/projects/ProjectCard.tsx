@@ -30,37 +30,37 @@ export const ProjectCard = ({ project, showApplicantCount = true, isPreview = fa
   };
 
   return (
-    <Card className="shadow-card hover:shadow-elegant transition-smooth animate-slide-up">
+    <Card className="shadow-soft hover:shadow-magical transition-all duration-300 hover-lift animate-fade-in rounded-2xl gradient-card border border-primary/5">
       <CardHeader>
-        <div className="flex justify-between items-start gap-2">
+        <div className="flex justify-between items-start gap-3">
           <div className="flex-1">
-            <CardTitle className="text-lg font-semibold">{project.title}</CardTitle>
-            <CardDescription className="font-medium text-primary">
+            <CardTitle className="text-lg font-semibold font-display text-foreground hover:text-gradient transition-colors">{project.title}</CardTitle>
+            <CardDescription className="font-medium text-primary font-body mt-1">
               {project.ngoName}
             </CardDescription>
           </div>
           <div className="flex items-center gap-2">
             {showApplicantCount && project.applicants.length > 0 && (
-              <Badge variant="secondary" className="flex items-center gap-1 animate-scale-in">
+              <Badge variant="secondary" className="flex items-center gap-1 animate-scale-in shadow-soft hover:shadow-medium bg-success-light text-success border border-success/20">
                 <Users className="w-3 h-3" />
                 {project.applicants.length}
                 {currentUser?.type === 'ngo' && currentUser.id === project.ngoId && (
-                  <TrendingUp className="w-3 h-3 ml-1" />
+                  <TrendingUp className="w-3 h-3 ml-1 animate-bounce-gentle" />
                 )}
               </Badge>
             )}
             {userApplication && (
               <Badge 
-                className={`animate-fade-in ${
+                className={`animate-fade-in shadow-soft ${
                   userApplication.status === 'accepted' 
-                    ? 'bg-success/10 text-success border-success/20' 
+                    ? 'bg-success-light text-success border-success/30 shadow-glow' 
                     : userApplication.status === 'rejected'
-                    ? 'bg-destructive/10 text-destructive border-destructive/20'
-                    : 'bg-warning/10 text-warning border-warning/20'
+                    ? 'bg-destructive/10 text-destructive border-destructive/30'
+                    : 'bg-warning-light text-warning border-warning/30 animate-pulse-soft'
                 }`}
               >
-                {userApplication.status === 'accepted' ? '✓ Accepted' : 
-                 userApplication.status === 'rejected' ? '✗ Rejected' : '⏳ Pending'}
+                {userApplication.status === 'accepted' ? '✨ Accepted' : 
+                 userApplication.status === 'rejected' ? '❌ Not Selected' : '⏳ Pending'}
               </Badge>
             )}
           </div>
@@ -72,30 +72,29 @@ export const ProjectCard = ({ project, showApplicantCount = true, isPreview = fa
           {project.description}
         </p>
         
-        <div className="space-y-2">
-          <div className="flex flex-wrap gap-1">
+        <div className="space-y-3">
+          <div className="flex flex-wrap gap-2">
             {project.requiredSkills.map(skill => (
-              <Badge key={skill} variant="outline" className="text-xs">
+              <Badge key={skill} variant="outline" className="text-xs font-body shadow-soft hover:shadow-medium bg-accent-light text-accent border-accent/20 hover:bg-accent hover:text-accent-foreground transition-all duration-300">
                 {skill}
               </Badge>
             ))}
           </div>
-          
-          <div className="flex items-center gap-4 text-xs text-muted-foreground">
+          <div className="flex items-center gap-4 text-xs text-muted-foreground font-body">
             {project.location && (
-              <div className="flex items-center gap-1">
-                <MapPin className="w-3 h-3" />
+              <div className="flex items-center gap-1.5 px-2 py-1 rounded-lg bg-muted/50">
+                <MapPin className="w-3 h-3 text-primary" />
                 {project.location}
               </div>
             )}
             {project.duration && (
-              <div className="flex items-center gap-1">
-                <Clock className="w-3 h-3" />
+              <div className="flex items-center gap-1.5 px-2 py-1 rounded-lg bg-muted/50">
+                <Clock className="w-3 h-3 text-accent" />
                 {project.duration}
               </div>
             )}
-            <div className="flex items-center gap-1">
-              <Calendar className="w-3 h-3" />
+            <div className="flex items-center gap-1.5 px-2 py-1 rounded-lg bg-muted/50">
+              <Calendar className="w-3 h-3 text-success" />
               {new Date(project.createdAt).toLocaleDateString()}
             </div>
           </div>
@@ -104,37 +103,38 @@ export const ProjectCard = ({ project, showApplicantCount = true, isPreview = fa
         {isPreview ? (
           <Button 
             disabled 
-            className="w-full bg-muted text-muted-foreground cursor-not-allowed"
+            variant="soft"
+            className="w-full cursor-not-allowed opacity-70 animate-bounce-gentle"
           >
-            Sign up to Apply
+            💫 Sign up to Apply
           </Button>
         ) : currentUser?.type === 'volunteer' && (
           <Button 
             onClick={handleApply}
             disabled={!canApply}
-            className={`w-full transition-smooth ${
+            variant={hasApplied ? 'soft' : 'magical'}
+            className={`w-full font-body font-semibold ${
               hasApplied 
-                ? 'success-glow border border-primary/20' 
-                : 'hero-gradient hover:shadow-glow'
+                ? 'animate-sparkle' 
+                : 'hover:animate-wiggle'
             }`}
-            variant={hasApplied ? 'outline' : 'default'}
           >
             {hasApplied ? (
-              userApplication?.status === 'accepted' ? 'Accepted ✓' :
-              userApplication?.status === 'rejected' ? 'Not Selected' :
-              'Applied - Pending'
-            ) : 'Apply Now'}
+              userApplication?.status === 'accepted' ? '🎉 Accepted!' :
+              userApplication?.status === 'rejected' ? '💔 Not Selected' :
+              '⏳ Applied - Pending'
+            ) : '💖 Apply Now'}
           </Button>
         )}
         
         {currentUser?.type === 'ngo' && currentUser.id === project.ngoId && (
-          <div className="bg-primary/5 rounded-lg p-3 border border-primary/10">
+          <div className="gradient-glow rounded-2xl p-4 border border-primary/20 shadow-magical animate-glow">
             <div className="flex items-center justify-between">
-              <span className="text-sm font-medium text-primary">Your Project</span>
+              <span className="text-sm font-medium font-display text-primary">✨ Your Project</span>
               <div className="flex items-center gap-2">
-                <Users className="w-4 h-4 text-primary" />
-                <span className="font-bold text-primary">{project.applicants.length}</span>
-                <span className="text-sm text-muted-foreground">applicant{project.applicants.length !== 1 ? 's' : ''}</span>
+                <Users className="w-4 h-4 text-primary animate-bounce-gentle" />
+                <span className="font-bold text-primary text-lg">{project.applicants.length}</span>
+                <span className="text-sm text-muted-foreground font-body">applicant{project.applicants.length !== 1 ? 's' : ''}</span>
               </div>
             </div>
           </div>
