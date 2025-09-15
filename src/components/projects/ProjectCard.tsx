@@ -8,9 +8,11 @@ import { useApp } from '@/context/AppContext';
 
 interface ProjectCardProps {
   project: Project;
+  showApplicantCount?: boolean;
+  isPreview?: boolean;
 }
 
-export const ProjectCard = ({ project }: ProjectCardProps) => {
+export const ProjectCard = ({ project, showApplicantCount = true, isPreview = false }: ProjectCardProps) => {
   const { currentUser, applyToProject, applications } = useApp();
   
   const hasApplied = currentUser?.appliedProjects?.includes(project.id);
@@ -38,7 +40,7 @@ export const ProjectCard = ({ project }: ProjectCardProps) => {
             </CardDescription>
           </div>
           <div className="flex items-center gap-2">
-            {project.applicants.length > 0 && (
+            {showApplicantCount && project.applicants.length > 0 && (
               <Badge variant="secondary" className="flex items-center gap-1 animate-scale-in">
                 <Users className="w-3 h-3" />
                 {project.applicants.length}
@@ -99,7 +101,14 @@ export const ProjectCard = ({ project }: ProjectCardProps) => {
           </div>
         </div>
         
-        {currentUser?.type === 'volunteer' && (
+        {isPreview ? (
+          <Button 
+            disabled 
+            className="w-full bg-muted text-muted-foreground cursor-not-allowed"
+          >
+            Sign up to Apply
+          </Button>
+        ) : currentUser?.type === 'volunteer' && (
           <Button 
             onClick={handleApply}
             disabled={!canApply}
