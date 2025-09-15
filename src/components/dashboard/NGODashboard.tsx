@@ -5,6 +5,7 @@ import { CreateProjectForm } from '@/components/projects/CreateProjectForm';
 import { ApplicantManagement } from './ApplicantManagement';
 import { useApp } from '@/context/AppContext';
 import { Building2, Users, Plus, Briefcase } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 export const NGODashboard = () => {
   const { currentUser, projects } = useApp();
@@ -36,15 +37,17 @@ export const NGODashboard = () => {
           </CardContent>
         </Card>
         
-        <Card className="shadow-card">
-          <CardContent className="flex items-center p-6">
-            <Users className="w-8 h-8 text-accent mr-3" />
-            <div>
-              <p className="text-2xl font-bold">{totalApplicants}</p>
-              <p className="text-sm text-muted-foreground">Total Applicants</p>
-            </div>
-          </CardContent>
-        </Card>
+        <Link to="/applicants" className="block">
+          <Card className="shadow-card hover-scale cursor-pointer transition-smooth hover:shadow-elegant">
+            <CardContent className="flex items-center p-6">
+              <Users className="w-8 h-8 text-accent mr-3" />
+              <div>
+                <p className="text-2xl font-bold">{totalApplicants}</p>
+                <p className="text-sm text-muted-foreground">Total Applicants</p>
+              </div>
+            </CardContent>
+          </Card>
+        </Link>
         
         <Card className="shadow-card">
           <CardContent className="flex items-center p-6">
