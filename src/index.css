@@ -2,41 +2,58 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+/* Impact Match Design System - Professional NGO/Volunteer Platform */
 
 @layer base {
   :root {
+    /* Core Colors - Impact-focused palette */
     --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    --foreground: 210 11% 15%;
 
     --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card-foreground: 210 11% 15%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover-foreground: 210 11% 15%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    /* Primary - Impact Green */
+    --primary: 142 69% 49%;
+    --primary-foreground: 0 0% 100%;
+    --primary-glow: 142 69% 65%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    /* Secondary - Trust Blue */
+    --secondary: 210 100% 96%;
+    --secondary-foreground: 210 11% 15%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted: 210 40% 98%;
+    --muted-foreground: 215 16% 47%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    /* Accent - Growth Teal */
+    --accent: 174 62% 50%;
+    --accent-foreground: 0 0% 100%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --border: 214 32% 91%;
+    --input: 214 32% 91%;
+    --ring: 142 69% 49%;
 
-    --radius: 0.5rem;
+    --radius: 0.75rem;
+
+    /* Impact Match Specific Tokens */
+    --hero-gradient: linear-gradient(135deg, hsl(142 69% 49%), hsl(174 62% 50%));
+    --card-gradient: linear-gradient(135deg, hsl(0 0% 100%), hsl(210 40% 98%));
+    --success-glow: linear-gradient(135deg, hsl(142 69% 49% / 0.1), hsl(174 62% 50% / 0.1));
+    
+    /* Shadows */
+    --shadow-elegant: 0 4px 20px -4px hsl(142 69% 49% / 0.15);
+    --shadow-card: 0 2px 8px -2px hsl(210 11% 15% / 0.08);
+    --shadow-glow: 0 0 30px hsl(142 69% 49% / 0.3);
+
+    /* Animations */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 
     --sidebar-background: 0 0% 98%;
 
@@ -56,41 +73,55 @@ All colors MUST be HSL.
   }
 
   .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
+    --background: 210 11% 15%;
+    --foreground: 0 0% 98%;
 
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
+    --card: 210 11% 15%;
+    --card-foreground: 0 0% 98%;
 
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
+    --popover: 210 11% 15%;
+    --popover-foreground: 0 0% 98%;
 
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
+    /* Primary - Impact Green (adjusted for dark mode) */
+    --primary: 142 69% 55%;
+    --primary-foreground: 210 11% 15%;
+    --primary-glow: 142 69% 70%;
 
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
+    --secondary: 210 11% 20%;
+    --secondary-foreground: 0 0% 98%;
 
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
+    --muted: 210 11% 18%;
+    --muted-foreground: 215 20% 70%;
 
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
+    /* Accent - Growth Teal (adjusted for dark mode) */
+    --accent: 174 62% 55%;
+    --accent-foreground: 210 11% 15%;
 
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 0 62% 50%;
+    --destructive-foreground: 0 0% 98%;
 
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --border: 210 11% 25%;
+    --input: 210 11% 25%;
+    --ring: 142 69% 55%;
+
+    /* Dark mode specific gradients and shadows */
+    --hero-gradient: linear-gradient(135deg, hsl(142 69% 55%), hsl(174 62% 55%));
+    --card-gradient: linear-gradient(135deg, hsl(210 11% 15%), hsl(210 11% 18%));
+    --success-glow: linear-gradient(135deg, hsl(142 69% 55% / 0.1), hsl(174 62% 55% / 0.1));
+    
+    /* Adjusted shadows for dark mode */
+    --shadow-elegant: 0 4px 20px -4px hsl(142 69% 55% / 0.2);
+    --shadow-card: 0 2px 8px -2px hsl(0 0% 0% / 0.3);
+    --shadow-glow: 0 0 30px hsl(142 69% 55% / 0.4);
+
+    --sidebar-background: 210 11% 20%;
+    --sidebar-foreground: 0 0% 95%;
+    --sidebar-primary: 142 69% 55%;
+    --sidebar-primary-foreground: 210 11% 15%;
+    --sidebar-accent: 210 11% 25%;
+    --sidebar-accent-foreground: 0 0% 95%;
+    --sidebar-border: 210 11% 25%;
+    --sidebar-ring: 142 69% 55%;
   }
 }
 
@@ -100,6 +131,68 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-sans antialiased;
+  }
+
+  /* Custom utility classes for Impact Match */
+  .hero-gradient {
+    background: var(--hero-gradient);
+  }
+  
+  .card-gradient {
+    background: var(--card-gradient);
+  }
+  
+  .success-glow {
+    background: var(--success-glow);
+  }
+  
+  .shadow-elegant {
+    box-shadow: var(--shadow-elegant);
+  }
+  
+  .shadow-card {
+    box-shadow: var(--shadow-card);
+  }
+  
+  .shadow-glow {
+    box-shadow: var(--shadow-glow);
+  }
+  
+  .transition-smooth {
+    transition: var(--transition-smooth);
+  }
+  
+  .transition-bounce {
+    transition: var(--transition-bounce);
+  }
+
+  /* Animation keyframes */
+  .animate-glow {
+    animation: glow 2s ease-in-out infinite alternate;
+  }
+
+  @keyframes glow {
+    from {
+      box-shadow: 0 0 20px hsl(142 69% 49% / 0.2);
+    }
+    to {
+      box-shadow: 0 0 30px hsl(142 69% 49% / 0.4), 0 0 40px hsl(174 62% 50% / 0.3);
+    }
+  }
+
+  .animate-slide-up {
+    animation: slideUp 0.6s ease-out forwards;
+  }
+
+  @keyframes slideUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
 }
