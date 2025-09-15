@@ -21,9 +21,9 @@ import {
 const Opportunities = () => {
   const { projects, currentUser } = useApp();
   const [searchTerm, setSearchTerm] = useState('');
-  const [selectedSkill, setSelectedSkill] = useState('');
-  const [selectedLocation, setSelectedLocation] = useState('');
-  const [selectedDuration, setSelectedDuration] = useState('');
+  const [selectedSkill, setSelectedSkill] = useState('all');
+  const [selectedLocation, setSelectedLocation] = useState('all');
+  const [selectedDuration, setSelectedDuration] = useState('all');
 
   // Get all unique skills from projects
   const allSkills = [...new Set(projects.flatMap(project => project.requiredSkills))];
@@ -36,9 +36,9 @@ const Opportunities = () => {
                          project.description.toLowerCase().includes(searchTerm.toLowerCase()) ||
                          project.ngoName.toLowerCase().includes(searchTerm.toLowerCase());
     
-    const matchesSkill = !selectedSkill || project.requiredSkills.includes(selectedSkill);
-    const matchesLocation = !selectedLocation || project.location === selectedLocation;
-    const matchesDuration = !selectedDuration || project.duration === selectedDuration;
+    const matchesSkill = selectedSkill === 'all' || project.requiredSkills.includes(selectedSkill);
+    const matchesLocation = selectedLocation === 'all' || project.location === selectedLocation;
+    const matchesDuration = selectedDuration === 'all' || project.duration === selectedDuration;
     
     return matchesSearch && matchesSkill && matchesLocation && matchesDuration;
   });
@@ -56,9 +56,9 @@ const Opportunities = () => {
 
   const clearFilters = () => {
     setSearchTerm('');
-    setSelectedSkill('');
-    setSelectedLocation('');
-    setSelectedDuration('');
+    setSelectedSkill('all');
+    setSelectedLocation('all');
+    setSelectedDuration('all');
   };
 
   return (
@@ -146,7 +146,7 @@ const Opportunities = () => {
                       <SelectValue placeholder="All skills" />
                     </SelectTrigger>
                     <SelectContent>
-                      <SelectItem value="">All skills</SelectItem>
+                      <SelectItem value="all">All skills</SelectItem>
                       {allSkills.map(skill => (
                         <SelectItem key={skill} value={skill}>{skill}</SelectItem>
                       ))}
@@ -162,7 +162,7 @@ const Opportunities = () => {
                       <SelectValue placeholder="All locations" />
                     </SelectTrigger>
                     <SelectContent>
-                      <SelectItem value="">All locations</SelectItem>
+                      <SelectItem value="all">All locations</SelectItem>
                       {allLocations.map(location => (
                         <SelectItem key={location} value={location}>{location}</SelectItem>
                       ))}
@@ -178,7 +178,7 @@ const Opportunities = () => {
                       <SelectValue placeholder="All durations" />
                     </SelectTrigger>
                     <SelectContent>
-                      <SelectItem value="">All durations</SelectItem>
+                      <SelectItem value="all">All durations</SelectItem>
                       {durations.map(duration => (
                         <SelectItem key={duration} value={duration}>{duration}</SelectItem>
                       ))}
@@ -204,7 +204,7 @@ const Opportunities = () => {
                         key={skill} 
                         variant={selectedSkill === skill ? "default" : "secondary"}
                         className="cursor-pointer text-xs"
-                        onClick={() => setSelectedSkill(selectedSkill === skill ? '' : skill)}
+                        onClick={() => setSelectedSkill(selectedSkill === skill ? 'all' : skill)}
                       >
                         {skill}
                       </Badge>
