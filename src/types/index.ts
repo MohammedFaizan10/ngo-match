@@ -8,6 +8,14 @@ export interface User {
   name?: string;
 }
 
+export interface Application {
+  id: string;
+  projectId: string;
+  volunteerId: string;
+  status: 'pending' | 'accepted' | 'rejected';
+  appliedAt: string;
+}
+
 export interface Project {
   id: string;
   ngoId: string;
@@ -24,6 +32,7 @@ export interface Project {
 export interface AppData {
   users: User[];
   projects: Project[];
+  applications: Application[];
 }
 
 export const SKILLS_OPTIONS = [

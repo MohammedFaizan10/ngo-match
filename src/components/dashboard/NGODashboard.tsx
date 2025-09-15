@@ -2,6 +2,7 @@ import React from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { ProjectCard } from '@/components/projects/ProjectCard';
 import { CreateProjectForm } from '@/components/projects/CreateProjectForm';
+import { ApplicantManagement } from './ApplicantManagement';
 import { useApp } from '@/context/AppContext';
 import { Building2, Users, Plus, Briefcase } from 'lucide-react';
 
@@ -60,6 +61,9 @@ export const NGODashboard = () => {
       <div className="flex justify-center">
         <CreateProjectForm />
       </div>
+
+      {/* Applicant Management */}
+      <ApplicantManagement />
 
       {/* My Projects */}
       {myProjects.length > 0 ? (

@@ -1,15 +1,18 @@
 import React, { createContext, useContext, useState, useEffect, ReactNode } from 'react';
-import { User, Project, AppData } from '@/types';
+import { User, Project, AppData, Application } from '@/types';
 import { toast } from '@/hooks/use-toast';
 
 interface AppContextType {
   currentUser: User | null;
   projects: Project[];
+  users: User[];
+  applications: Application[];
   login: (username: string, password: string) => boolean;
   register: (userData: Omit<User, 'id' | 'appliedProjects'>) => boolean;
   logout: () => void;
   createProject: (projectData: Omit<Project, 'id' | 'ngoId' | 'ngoName' | 'applicants' | 'createdAt'>) => void;
   applyToProject: (projectId: string) => void;
+  updateApplicationStatus: (applicationId: string, status: 'accepted' | 'rejected') => void;
   refreshProjects: () => void;
 }
 
@@ -74,7 +77,8 @@ const initializeData = (): AppData => {
         location: 'Remote',
         duration: '1-2 months'
       }
-    ]
+    ],
+    applications: []
   };
 
   localStorage.setItem('impactMatchData', JSON.stringify(defaultData));
@@ -173,6 +177,14 @@ export const AppProvider = ({ children }: { children: ReactNode }) => {
       return;
     }
 
+    const newApplication: Application = {
+      id: `application-${Date.now()}`,
+      projectId,
+      volunteerId: currentUser.id,
+      status: 'pending',
+      appliedAt: new Date().toISOString()
+    };
+
     setData(prev => ({
       ...prev,
       users: prev.users.map(u => 
@@ -184,7 +196,8 @@ export const AppProvider = ({ children }: { children: ReactNode }) => {
         p.id === projectId
           ? { ...p, applicants: [...p.applicants, currentUser.id] }
           : p
-      )
+      ),
+      applications: [...(prev.applications || []), newApplication]
     }));
 
     // Update current user state
@@ -194,6 +207,21 @@ export const AppProvider = ({ children }: { children: ReactNode }) => {
     } : null);
 
     toast({ title: "Application sent!", description: "The NGO will review your application" });
+  };
+
+  const updateApplicationStatus = (applicationId: string, status: 'accepted' | 'rejected') => {
+    setData(prev => ({
+      ...prev,
+      applications: prev.applications?.map(app =>
+        app.id === applicationId ? { ...app, status } : app
+      ) || []
+    }));
+
+    toast({ 
+      title: `Application ${status}`, 
+      description: `The application has been ${status}`,
+      variant: status === 'accepted' ? 'default' : 'destructive'
+    });
   };
 
   const refreshProjects = () => {
@@ -208,11 +236,14 @@ export const AppProvider = ({ children }: { children: ReactNode }) => {
     <AppContext.Provider value={{
       currentUser,
       projects: data.projects,
+      users: data.users,
+      applications: data.applications || [],
       login,
       register,
       logout,
       createProject,
       applyToProject,
+      updateApplicationStatus,
       refreshProjects
     }}>
       {children}
